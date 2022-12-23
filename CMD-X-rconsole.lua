@@ -1,11 +1,10 @@
 __disable = false
-__old = hookfunction(Instance.new, function(...)
-    local args = {...}
-    if checkcaller() and args[1] == "ScreenGui" and args[2] == game:GetService("CoreGui").RobloxGui and not __disable then
+__old = hookfunction(Instance.new, function(a, b)
+    if checkcaller() and a == "ScreenGui" and b == game:GetService("CoreGui").RobloxGui and not __disable then
         print("CMD-X Gui hooked and removed")
-        return __old(args[1], nil)
+        return __old(a, nil)
     end
-    return __old(...)
+    return __old(a, b)
 end)
 
 coroutine.resume(coroutine.create(function()
