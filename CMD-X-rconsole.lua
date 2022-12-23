@@ -61,9 +61,9 @@ __disable = true
 print("Synapse rconsole loaded and Gui hook reversed")
 
 repeat
-    local x = rconsoleinputasync()
+    local a = rconsoleinputasync()
     coroutine.resume(coroutine.create(function()
-        executeCommand(x)
+        executeCommand(a)
         rconsoleprint("> ")
     end))
 until not holder
