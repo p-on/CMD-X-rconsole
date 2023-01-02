@@ -1,14 +1,12 @@
 __disable = false
 __old = hookfunction(Instance.new, function(a, b)
     if checkcaller() and a == "ScreenGui" and b == game:GetService("CoreGui").RobloxGui and not __disable then
-        print("CMD-X Gui hooked and removed")
         return __old(a, nil)
     end
     return __old(a, b)
 end)
 
 coroutine.resume(coroutine.create(function()
-    print("Attempting to skip through button press check")
     repeat
         pcall(function()
             RunDude = true
@@ -18,8 +16,6 @@ coroutine.resume(coroutine.create(function()
 end))
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()    
-
-print("Success, loading...")
 
 hookfunction(opx, function(a, b) -- hook output
     if a == "*" then
@@ -58,7 +54,6 @@ rconsoleprint(" - Welcome to CMD-X rconsole\n - This was created by CMD-X founde
 rconsoleprint("> ")
 
 __disable = true
-print("Synapse rconsole loaded and Gui hook reversed")
 
 repeat
     local a = rconsoleinputasync()
